@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Logo from "../public/assets/logo.png";
 import { Menu, Transition } from "@headlessui/react";
 import { BsPerson, BsSearch, BsThreeDotsVertical } from "react-icons/bs";
@@ -11,6 +11,11 @@ function classNames(...classes) {
 }
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false);
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
   return (
     <div className="fixed h-14 w-full flex flex-nowrap  item-center mb-[2px] p-2 bg-[#121212] z-10">
       {/* Left Side */}
@@ -123,9 +128,21 @@ const Navbar = () => {
       </div>
 
       {/* Hamburger Menu */}
+      <div
+        onClick={handleNav}
+        className="flex flex-col justify-center items-center md:hidden cursor-pointer z-10"
+      >
+        {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+      </div>
 
       {/* Mobile Menu */}
-      <div className="fixed top-0 left-0 w-full h-screen bg-[#121212] flex justify-center items-center ease-in duration-300">
+      <div
+        className={
+          nav
+            ? "md:hidden fixed top-0 left-0 w-full h-screen bg-[#121212] flex justify-center items-center ease-in duration-300"
+            : "md:hidden fixed top-[-100%] left-0 w-full h-screen bg-[#121212] flex justify-center items-center ease-in duration-300"
+        }
+      >
         <ul className="text-center">
           <li className="p-4 text-3xl font-bold">
             <Link href="/">Home</Link>
