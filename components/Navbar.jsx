@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { Fragment } from "react";
 import Logo from "../public/assets/logo.png";
 import { Menu, Transition } from "@headlessui/react";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsSearch, BsThreeDotsVertical } from "react-icons/bs";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join("");
@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="fixed h-14 w-full flex flex-nowrap  item-center mb-[2px] p-4 bg-[#121212] z-10">
       {/* Left Side */}
-      <div className="flex grow items-center justify-">
+      <div className="flex grow items-center justify-start">
         <Link href="/" className="flex">
           <Image
             src={Logo}
@@ -42,7 +42,7 @@ const Navbar = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-[#121212] ring-1 ring-white ring-opacity-5 focus:outline-none">
-                <div className="py-1">
+                <div className="py-1 flex flex-col">
                   <Menu.Item>
                     {({ active }) => (
                       <a
@@ -54,7 +54,7 @@ const Navbar = () => {
                           "block px-4 py-2 text-sm"
                         )}
                       >
-                        Settings
+                        Account Settings
                       </a>
                     )}
                   </Menu.Item>
@@ -94,7 +94,22 @@ const Navbar = () => {
           </Menu>
         </div>
       </div>
+
       {/* Middle*/}
+      <div className="hidden md:flex grow-[2] items-center justify-center">
+        <div className="bg-gray-500 text-white flex justfiy-center items-center max-w-[400px] m-auto p-2 rounded-2xl">
+          <div>
+            <input
+              type="text"
+              className="bg-transparent border-none text-white focus:outline-none"
+            />
+          </div>
+          <div>
+            <BsSearch />
+          </div>
+        </div>
+      </div>
+
       {/* Right Side */}
     </div>
   );
