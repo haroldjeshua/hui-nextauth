@@ -3,7 +3,8 @@ import Link from "next/link";
 import React, { Fragment } from "react";
 import Logo from "../public/assets/logo.png";
 import { Menu, Transition } from "@headlessui/react";
-import { BsSearch, BsThreeDotsVertical } from "react-icons/bs";
+import { BsPerson, BsSearch, BsThreeDotsVertical } from "react-icons/bs";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join("");
@@ -11,7 +12,7 @@ function classNames(...classes) {
 
 const Navbar = () => {
   return (
-    <div className="fixed h-14 w-full flex flex-nowrap  item-center mb-[2px] p-4 bg-[#121212] z-10">
+    <div className="fixed h-14 w-full flex flex-nowrap  item-center mb-[2px] p-2 bg-[#121212] z-10">
       {/* Left Side */}
       <div className="flex grow items-center justify-start">
         <Link href="/" className="flex">
@@ -94,14 +95,14 @@ const Navbar = () => {
           </Menu>
         </div>
       </div>
-
       {/* Middle*/}
       <div className="hidden md:flex grow-[2] items-center justify-center">
-        <div className="bg-gray-500 text-white flex justfiy-center items-center max-w-[400px] m-auto p-2 rounded-2xl">
+        <div className="bg-gray-500 text-white flex justify-between items-center max-w-[400px] w-full m-auto p-2 rounded-2xl">
           <div>
             <input
               type="text"
               className="bg-transparent border-none text-white focus:outline-none"
+              placeholder="Search"
             />
           </div>
           <div>
@@ -109,8 +110,37 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
       {/* Right Side */}
+      <div className="hidden md:flex grow items-center justify-end">
+        <div className="flex items-center">
+          <Link href="/">
+            <button className="px-4 py-[8px] rounded-lg font-bold bg-[#9147ff]">
+              Account
+            </button>
+          </Link>
+          <BsPerson size={30} />
+        </div>
+      </div>
+
+      {/* Hamburger Menu */}
+
+      {/* Mobile Menu */}
+      <div className="fixed top-0 left-0 w-full h-screen bg-[#121212] flex justify-center items-center ease-in duration-300">
+        <ul className="text-center">
+          <li className="p-4 text-3xl font-bold">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="p-4 text-3xl font-bold">
+            <Link href="/">Live Channels</Link>
+          </li>
+          <li className="p-4 text-3xl font-bold">
+            <Link href="/">Top Categories</Link>
+          </li>
+          <li className="p-4 text-3xl font-bold">
+            <Link href="/">Account</Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
