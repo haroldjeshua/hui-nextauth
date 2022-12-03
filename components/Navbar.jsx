@@ -5,6 +5,7 @@ import Logo from "../public/assets/logo.png";
 import { Menu, Transition } from "@headlessui/react";
 import { BsPerson, BsSearch, BsThreeDotsVertical } from "react-icons/bs";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join("");
@@ -15,6 +16,10 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+
+  const { data: session } = useSession();
+
+  console.log(session);
 
   return (
     <div className="fixed h-14 w-full flex flex-nowrap  item-center mb-[2px] p-2 bg-[#121212] z-10">
@@ -117,14 +122,81 @@ const Navbar = () => {
       </div>
       {/* Right Side */}
       <div className="hidden md:flex grow items-center justify-end">
-        <div className="flex items-center gap-2">
-          <Link href="/account">
-            <button className="px-4 py-[8px] rounded-lg font-bold bg-[#9147ff]">
-              Account
-            </button>
-          </Link>
-          <BsPerson size={30} />
-        </div>
+        {session ? (
+          <div className="flex items-center gap-2">
+            <Link href="/account">
+              <div>
+                <p className="cursor-pointer">Welcome, {session.user.name}</p>
+              </div>
+            </Link>
+            <Menu as="div" className="relative text-left">
+              <div className="flex">
+                <Menu.Button>
+                  <Image
+                    src={session.user.image}
+                    width="32"
+                    height="32"
+                    className="rounded-full"
+                  />
+                </Menu.Button>
+              </div>
+
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#121212] ring-1 ring-white ring-opacity-5 focus:outline-none">
+                  <div className="py-1 flex flex-col">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="/account"
+                          className={classNames(
+                            active
+                              ? "bg-gray-500 text-gray-100"
+                              : "text-gray-200",
+                            "block px-4 py-2 text-sm"
+                          )}
+                        >
+                          Account
+                        </a>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          onClick={() => signOut()}
+                          className={classNames(
+                            active
+                              ? "bg-gray-500 text-gray-100"
+                              : "text-gray-200",
+                            "block px-4 py-2 text-sm"
+                          )}
+                        >
+                          Logout
+                        </p>
+                      )}
+                    </Menu.Item>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2">
+            <Link href="/account">
+              <button className="px-4 py-[8px] rounded-lg font-bold bg-[#9147ff]">
+                Account
+              </button>
+            </Link>
+            <BsPerson size={30} />
+          </div>
+        )}
       </div>
 
       {/* Hamburger Menu */}
