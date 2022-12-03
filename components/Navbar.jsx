@@ -134,6 +134,7 @@ const Navbar = () => {
                 <Menu.Button>
                   <Image
                     src={session.user.image}
+                    alt="/"
                     width="32"
                     height="32"
                     className="rounded-full"

@@ -1,6 +1,6 @@
-import { Main } from "next/document";
 import React from "react";
 import SideMenu from "./SideMenu";
+import Main from "./Main";
 
 const Layout = () => {
   return (
