@@ -8,7 +8,7 @@ const SideMenu = () => {
   return (
     <div className="fixed w-14 sm:w-16 xl:w-[15rem] h-screen p-2 bg-[#121212]">
       <div>
-        <p className="hidden xl:flex uppercase font-bold text-sm">
+        <p className="hidden xl:flex uppercase font-bold text-sm pb-4">
           Recommended Channels
         </p>
         <p>
@@ -32,7 +32,37 @@ const SideMenu = () => {
               <p className="text-gray-400">{item.game_name}</p>
             </div>
             <p className="flex items-center">
-              <BsDot size={20} color="red" />
+              <BsDot size={20} color="red" /> {item.rank}K
+            </p>
+          </div>
+        </div>
+      ))}
+
+      <div>
+        <p className="hidden xl:flex uppercase font-bold text-sm py-4">
+          Top Channels
+        </p>
+        <p>
+          <RiMovieLine size={20} className="xl:hidden justify-center w-full" />
+        </p>
+      </div>
+      {topChannels.map((item, index) => (
+        <div key={index} className="inline-flex items-center w-full py-[4px]">
+          <div>
+            <Image
+              src={item.avatar}
+              width="44"
+              height="44"
+              alt={item.username}
+            />
+          </div>
+          <div className="hidden xl:flex justify-between w-full">
+            <div>
+              <p>{item.username}</p>
+              <p className="text-gray-400">{item.game_name}</p>
+            </div>
+            <p className="flex items-center">
+              <BsDot size={20} color="red" /> {item.rank}K
             </p>
           </div>
         </div>
