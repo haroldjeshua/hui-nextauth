@@ -2,6 +2,7 @@ import React from "react";
 import { recChannels, topChannels } from "../data/mock-data";
 import { RiMovieLine } from "react-icons/ri";
 import Image from "next/image";
+import { BsDot } from "react-icons/bs";
 
 const SideMenu = () => {
   return (
@@ -24,6 +25,15 @@ const SideMenu = () => {
               height="44"
               alt={item.username}
             />
+          </div>
+          <div className="hidden xl:flex justify-between w-full">
+            <div>
+              <p>{item.username}</p>
+              <p className="text-gray-400">{item.game_name}</p>
+            </div>
+            <p className="flex items-center">
+              <BsDot size={20} color="red" />
+            </p>
           </div>
         </div>
       ))}
