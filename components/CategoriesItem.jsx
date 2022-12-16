@@ -4,14 +4,14 @@ import React from "react";
 const CategoriesItem = ({ img, title, viewers, tag1, tag2 }) => {
   return (
     <div className="p-0">
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden bg-[#9147ff]">
         <div className="py-[66%] px-[50%]">
           <Image
             src={img}
             width="256"
             height="400"
             alt="/"
-            className="absolute top-0 left-0"
+            className="absolute top-0 left-0 hover:-translate-y-2 hover:translate-x-2 ease-in-out duration-300"
           />
         </div>
       </div>
