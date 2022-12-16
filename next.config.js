@@ -10,6 +10,7 @@ module.exports = {
       "lh3.googleusercontent.com",
       "robohash.org",
       "avatars.dicebear.com",
+      "static-cdn.jtvnw.net",
     ],
   },
 };
