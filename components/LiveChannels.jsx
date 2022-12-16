@@ -24,10 +24,72 @@ const LiveChannels = () => {
         <LiveChannelItem
           img={Live1}
           profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed.svg"
+          title="Deployable shield commin in clutch"
+          user="50ZINT"
+          game="Call of Duty: Warzone"
+        />
+        <LiveChannelItem
+          img={Live2}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed1.svg"
           title="Test Stream! Any support is ap..."
           user="Harv"
           game="Valorant"
-          alt="/"
+        />
+        <LiveChannelItem
+          img={Live3}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed2.svg"
+          title="VALORANT WITH NIJI AND FRIENDS!..."
+          user="baoo"
+          game="Valorant"
+        />
+        <LiveChannelItem
+          img={Live4}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed3.svg"
+          title="Local Streamer stuck in a cave: sings..."
+          user="Jerma985"
+          game="One Hand Clapping"
+        />
+        <LiveChannelItem
+          img={Live5}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed4.svg"
+          title="BIG Mario Kart session"
+          user="Bigpuffer"
+          game="Mario Kart 8 Deluxe"
+        />
+        <LiveChannelItem
+          img={Live6}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed5.svg"
+          title="Tripod Man Gains RP | Code: MFAM | @..."
+          user="NICKMERCS"
+          game="Apex Legends"
+        />
+        <LiveChannelItem
+          img={Live7}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed6.svg"
+          title="JESUS LOVES YOU!!!"
+          user="coletteleclair"
+          game="Just Chatting"
+        />
+        <LiveChannelItem
+          img={Live8}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed7.svg"
+          title="Covert_Muffin teaching Star Wars..."
+          user="JamesDoneQuick"
+          game="Star Wars: Jedi Knight II - Jedi Outcast"
+        />
+        <LiveChannelItem
+          img={Live9}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed8.svg"
+          title="Grinding"
+          user="shroud"
+          game="The Cycle: Frontier"
+        />
+        <LiveChannelItem
+          img={Live10}
+          profile_img="https://avatars.dicebear.com/api/adventurer/your-custom-seed9.svg"
+          title="GRILLIN / CHILLEN! Steak / Burgers..."
+          user="KennyGoodloe"
+          game="Just Chatting"
         />
       </div>
     </div>
